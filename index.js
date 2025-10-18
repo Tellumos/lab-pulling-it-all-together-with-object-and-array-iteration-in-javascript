@@ -114,3 +114,112 @@ function gameObject() {
         },
     };
 }
+
+function numPointsScored(playerName) {
+    const home = gameObject().home.players
+    for (const key in home) {
+        if (key === playerName) {
+            return home[`${key}`].points
+        }
+    }
+
+    const away = gameObject().away.players
+    for (const key in away) {
+        if (key === playerName) {
+            return away[`${key}`].points
+        }
+    }
+}
+
+function shoeSize(playerName) {
+        const home = gameObject().home.players
+    for (const key in home) {
+        if (key === playerName) {
+            return home[`${key}`].shoe
+        }
+    }
+
+    const away = gameObject().away.players
+    for (const key in away) {
+        if (key === playerName) {
+            return away[`${key}`].shoe
+        }
+    }
+}
+
+function teamColors(teamName) {
+    const home = gameObject().home
+    if (home.teamName === teamName) {
+            return home.colors
+        }
+    
+
+    const away = gameObject().away
+    if (away.teamName === teamName) {
+            return away.colors
+        }
+    
+}
+
+function teamNames() {
+    return [gameObject().home.teamName, gameObject().away.teamName]
+}
+
+function playerNumbers(teamName) {
+    const arr = []
+    const home = gameObject().home
+    if (home.teamName === teamName) {
+        for (const key in (home.players)) {
+            console.log(key)
+            arr.push(home.players[`${key}`].number)
+        }
+        return arr
+    }
+    
+    const away = gameObject().away
+    if (away.teamName === teamName) {
+        for (const key in (away.players)) {
+            arr.push(away.players[`${key}`].number)
+        }
+        return arr
+    }
+
+}
+
+function playerStats(playerName) {
+        const home = gameObject().home.players
+    for (const key in home) {
+        if (key === playerName) {
+            return home[`${key}`]
+        }
+    }
+
+    const away = gameObject().away.players
+    for (const key in away) {
+        if (key === playerName) {
+            return away[`${key}`]
+        }
+    }    
+}
+
+function bigShoeRebounds() {
+    let greatestSize = 0
+    let player = ""
+    const home = gameObject().home.players
+    for (const key in home) {
+        if ((home[`${key}`]. shoe) > greatestSize) {
+            greatestSize = (home[`${key}`]. shoe)
+            player = home[`${key}`]
+        }
+    }
+
+    const away = gameObject().away.players
+    for (const key in away) {
+        if ((away[`${key}`]. shoe) > greatestSize) {
+            greatestSize = (away[`${key}`]. shoe)
+            player = away[`${key}`]
+        }
+    }
+    return player.rebounds
+}
+
